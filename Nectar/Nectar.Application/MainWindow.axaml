@@ -4,6 +4,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Nectar.Application.MainWindow"
-        Title="Nectar.Application">
-    Welcome to Avalonia!
+        Title="Nectar"
+        Width="800"
+        Height="450">
+        
+        <SplitView IsPaneOpen="True"
+                   DisplayMode="CompactInline"
+                   CompactPaneLength="48"
+                   OpenPaneLength="100">
+            <SplitView.Pane>
+                <Grid ColumnDefinitions="100, 100"
+                      RowDefinitions="Auto, Auto, Auto, Auto, Auto">
+                    <Button Grid.Row="0" Grid.Column="0"
+                            Content="☰" 
+                            Width="48" HorizontalAlignment="Left"/>
+                    <Button Grid.Row="1" Grid.Column="0"
+                            Content="Home"/>
+                    <Button Grid.Row="2" Grid.Column="0"
+                            Content="Library"/>
+                    <Button Grid.Row="3" Grid.Column="0"
+                            Content="Bingo"/>
+                    <Button Grid.Row="4" Grid.Column="0"
+                            Content="Settings"/>
+                </Grid>
+            </SplitView.Pane>
+        </SplitView>
+        
 </Window>
