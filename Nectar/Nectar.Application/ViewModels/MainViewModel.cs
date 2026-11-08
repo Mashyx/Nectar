@@ -1,5 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
+using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Nectar.Application.Models;
@@ -10,7 +11,10 @@ namespace Nectar.Application.ViewModels;
 public partial class MainViewModel : ViewModelBase
 {
     [ObservableProperty]
-    private bool _isPaneOpen = true;
+    private string _toggleIconData = AppIcons.ChevronRight;
+    
+    [ObservableProperty]
+    private bool _isPaneOpen = false;
     
     [ObservableProperty]
     private ObservableCollection<NavItem> _navItems = new();
@@ -25,10 +29,34 @@ public partial class MainViewModel : ViewModelBase
     {
         NavItems = new ObservableCollection<NavItem>
         {
-            new NavItem { Title = "Home", TargetPageType = typeof(HomeView) },
-            new NavItem { Title = "Library", TargetPageType = typeof(LibraryView) },
-            new NavItem { Title = "Bingo", TargetPageType = typeof(BingoView) },
-            new NavItem { Title = "Settings", TargetPageType = typeof(SettingsView) }
+            new NavItem 
+            { 
+                Title = "Home", 
+                IconData = AppIcons.Home, 
+                IconColor = Brushes.CornflowerBlue, 
+                TargetPageType = typeof(HomeView) 
+            },
+            new NavItem 
+            { 
+                Title = "Library", 
+                IconData = AppIcons.Library, 
+                IconColor = Brushes.PaleGreen, 
+                TargetPageType = typeof(LibraryView) 
+            },
+            new NavItem 
+            { 
+                Title = "Bingo", 
+                IconData = AppIcons.Bingo, 
+                IconColor = Brushes.LightPink, 
+                TargetPageType = typeof(BingoView) 
+            },
+            new NavItem 
+            { 
+                Title = "Settings", 
+                IconData = AppIcons.Settings, 
+                IconColor = Brushes.MediumPurple, 
+                TargetPageType = typeof(SettingsView) 
+            }
         };
     }
 
@@ -41,5 +69,10 @@ public partial class MainViewModel : ViewModelBase
         {
             CurrentPage = Activator.CreateInstance(value.TargetPageType);
         }
+    }
+    
+    partial void OnIsPaneOpenChanged(bool value)
+    {
+        ToggleIconData = value ? AppIcons.ChevronLeft : AppIcons.ChevronRight;
     }
 }
