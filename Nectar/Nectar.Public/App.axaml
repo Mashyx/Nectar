@@ -1,12 +1,13 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="Nectar.Application.App"
-             xmlns:local="using:Nectar.Application"
+             x:Class="Nectar.Public.App"
+             xmlns:local="using:Nectar.Public"
+             xmlns:public="clr-namespace:Nectar.Public"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
-        <local:ViewLocator />
+        <public:ViewLocator />
     </Application.DataTemplates>
 
     <Application.Styles>

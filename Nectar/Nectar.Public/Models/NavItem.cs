@@ -1,8 +1,6 @@
-﻿using System;
-using Avalonia.Controls;
-using Avalonia.Media;
+﻿using Avalonia.Media;
 
-namespace Nectar.Application.Models;
+namespace Nectar.Public.Models;
 
 public class NavItem
 {

@@ -1,4 +1,4 @@
-﻿namespace Nectar.Application.Models;
+﻿namespace Nectar.Public.Models;
 
 public class AppIcons
 {

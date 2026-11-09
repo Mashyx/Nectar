@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace Nectar.Application.ViewModels;
+namespace Nectar.Public.ViewModels;
 
 public abstract class ViewModelBase : ObservableObject
 {

@@ -1,10 +1,12 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
-using Nectar.Application.ViewModels;
-using Nectar.Application.Views;
+using Nectar.Public.ViewModels;
+using Nectar.Public.Views;
+using Nectar.Public.ViewModels;
+using Nectar.Public.Views;
 
-namespace Nectar.Application;
+namespace Nectar.Public;
 
 public partial class App : Avalonia.Application
 {

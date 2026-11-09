@@ -1,17 +1,20 @@
-using System;
 using System.Collections.ObjectModel;
+using Avalonia.Layout;
 using Avalonia.Media;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using Nectar.Application.Models;
-using Nectar.Application.Views;
+using Nectar.Public.Models;
+using Nectar.Public.Views;
 
-namespace Nectar.Application.ViewModels;
+namespace Nectar.Public.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {
     [ObservableProperty]
     private string _toggleIconData = AppIcons.ChevronRight;
+    
+    [ObservableProperty]
+    private HorizontalAlignment _buttonAlignment = HorizontalAlignment.Center;
     
     [ObservableProperty]
     private bool _isPaneOpen = false;
@@ -73,6 +76,9 @@ public partial class MainViewModel : ViewModelBase
     
     partial void OnIsPaneOpenChanged(bool value)
     {
+        ButtonAlignment = ButtonAlignment == HorizontalAlignment.Center 
+            ? HorizontalAlignment.Right 
+            : HorizontalAlignment.Center;
         ToggleIconData = value ? AppIcons.ChevronLeft : AppIcons.ChevronRight;
     }
 }

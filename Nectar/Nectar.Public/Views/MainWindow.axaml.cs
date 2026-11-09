@@ -1,7 +1,7 @@
 using Avalonia.Controls;
-using Nectar.Application.ViewModels;
+using Nectar.Public.ViewModels;
 
-namespace Nectar.Application.Views;
+namespace Nectar.Public.Views;
 
 public partial class MainWindow : Window
 {

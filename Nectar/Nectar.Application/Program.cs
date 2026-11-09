@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using System;
+using Nectar.Public;
 
 namespace Nectar.Application;
 

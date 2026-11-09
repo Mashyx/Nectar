@@ -2,9 +2,10 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using Nectar.Application.ViewModels;
+using Nectar.Public.ViewModels;
+using Nectar.Public.ViewModels;
 
-namespace Nectar.Application;
+namespace Nectar.Public;
 
 /// <summary>
 /// Given a view model, returns the corresponding view if possible.
