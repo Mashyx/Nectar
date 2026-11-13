@@ -42,4 +42,8 @@
         </Compile>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Nectar.Services\Nectar.Services.csproj" />
+    </ItemGroup>
+
 </Project>

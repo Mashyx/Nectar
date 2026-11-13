@@ -2,6 +2,6 @@
 
 namespace Nectar.Public.ViewModels;
 
-public abstract class ViewModelBase : ObservableObject
+public abstract class ViewModelBase<T> : ObservableObject
 {
 }

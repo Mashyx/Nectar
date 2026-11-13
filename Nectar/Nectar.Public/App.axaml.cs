@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using Microsoft.Extensions.DependencyInjection;
 using Nectar.Public.ViewModels;
 using Nectar.Public.Views;
 using Nectar.Public.ViewModels;
@@ -10,6 +11,15 @@ namespace Nectar.Public;
 
 public partial class App : Avalonia.Application
 {
+    private readonly IServiceProvider _services;
+    
+    public App() { }
+    
+    public App(IServiceProvider services)
+    {
+        _services = services;
+    }
+    
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -21,7 +31,7 @@ public partial class App : Avalonia.Application
         {
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainViewModel(),
+                DataContext = _services.GetRequiredService<MainViewModel>()
             };
         }
 

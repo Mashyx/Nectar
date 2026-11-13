@@ -19,20 +19,36 @@ public class ViewLocator : IDataTemplate
     {
         if (param is null)
             return null;
-        
-        var name = param.GetType().FullName!.Replace("ViewModel", "View", StringComparison.Ordinal);
-        var type = Type.GetType(name);
 
-        if (type != null)
+        Type vmType = param.GetType();
+        
+        Type? baseType = vmType.BaseType;
+        while (baseType != null)
         {
-            return (Control)Activator.CreateInstance(type)!;
+            if (baseType.IsGenericType && baseType.GetGenericTypeDefinition() == typeof(ViewModelBase<>))
+            {
+                Type viewType = baseType.GetGenericArguments()[0];
+                return (Control)Activator.CreateInstance(viewType)!;
+            }
+            baseType = baseType.BaseType;
         }
-        
-        return new TextBlock { Text = "Not Found: " + name };
-    }
 
+        return new TextBlock { Text = $"View not found for: {vmType.Name}" };
+    }
     public bool Match(object? data)
     {
-        return data is ViewModelBase;
+        if (data == null) return false;
+
+        var type = data.GetType();
+        while (type != null && type != typeof(object))
+        {
+            if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(ViewModelBase<>))
+            {
+                return true;
+            }
+            type = type.BaseType;
+        }
+
+        return false;
     }
 }
